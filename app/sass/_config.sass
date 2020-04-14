@@ -1,0 +1,72 @@
+// IMPORT SECTION
+
+//@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+//@import 'node_modules/bootstrap/scss/_forms.scss'
+//@import 'node_modules/bootstrap/scss/_modal.scss'
+//@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+//@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+
+
+// USER VARIABLES SECTION
+
+$accent: #FF6012 // Accent Color
+$main: #FF8E08
+$gray: #8A8A8A
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$open_sans: 'Open Sans', sans-serif // Roboto Font Family
+
+
+// Bootstrap compatible gutter variable => $gutter
+
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		font-display: swap
+		src: local($fname), url($furl) format('woff')
+
+@include font('Open Sans', normal, 300, '../fonts/OpenSansLight.woff')
+@include font('Open Sans', normal, 400, '../fonts/OpenSansRegular.woff')
+@include font('Open Sans', italic, 400, '../fonts/OpenSansRegularItalic.woff')
+@include font('Open Sans', normal, 700, '../fonts/OpenSansBold.woff')
+@include font('Open Sans', italic, 700, '../fonts/OpenSansBoldItalic.woff')
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $open_sans
+	font-size: $fontsize
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	overflow-x: hidden
+	color: $textcolor
+	
+
+
